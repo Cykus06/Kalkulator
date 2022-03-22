@@ -17,15 +17,15 @@ std::string dodawanie(std::string a, std::string b)
     int N;
     reverse(a.begin(), a.end());
     reverse(b.begin(), b.end());
-    if (DLa > DLb)
+    int temp = DLa - DLb;
+    if (temp > 0)
     {
-        int temp = DLa - DLb;
         dopelnienie(temp, b);
         N = DLa;
     }
     else
     {
-        int temp = DLb - DLa;
+        temp *= -1;
         dopelnienie(temp, a);
         N = DLb;
     }
@@ -107,9 +107,22 @@ std::string dzielenie(std::string a, std::string b)
     return wynik;
 }
 
+std::string silnia(std::string a)
+{
+    std::string wynik = "1";
+    std::string zmienna = "1";
+    while (mniejsze(a, zmienna))
+    {
+        wynik = mnozenie(wynik, zmienna);
+        zmienna = dodawanie(zmienna, "1");
+    }
+    return mnozenie(wynik,a);
+}
+
 int main()
 {
-    std::cout << dodawanie("1230345","1123123123123") << '\n';
+    //std::cout << dodawanie("123034532432432423","1123123123123") << '\n';
     //std::cout << mnozenie("11", "3") << '\n';
     //std::cout << dzielenie("121", "11");
+    std::cout << silnia("5");
 }
