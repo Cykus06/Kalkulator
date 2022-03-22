@@ -3,6 +3,12 @@
 #include <string>
 #include <vector>
 
+void dopelnienie(int temp, std::string& str)
+{
+    for (int i = 0; i < temp; i++)
+        str += '0';
+}
+
 std::string dodawanie(std::string a, std::string b)
 {
     std::string wynik = "";
@@ -14,15 +20,13 @@ std::string dodawanie(std::string a, std::string b)
     if (DLa > DLb)
     {
         int temp = DLa - DLb;
-        for (int i = 0; i < temp; i++)
-            b += '0';
+        dopelnienie(temp, b);
         N = DLa;
     }
     else
     {
         int temp = DLb - DLa;
-        for (int i = 0; i < temp; i++)
-            a += '0';
+        dopelnienie(temp, a);
         N = DLb;
     }
     int reszta = 0;
@@ -105,7 +109,7 @@ std::string dzielenie(std::string a, std::string b)
 
 int main()
 {
-    //std::cout << dodawanie("0","1") << '\n';
+    std::cout << dodawanie("1230345","1123123123123") << '\n';
     //std::cout << mnozenie("11", "3") << '\n';
-    std::cout << dzielenie("121", "11");
+    //std::cout << dzielenie("121", "11");
 }
