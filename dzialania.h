@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <string>
 #include <vector>
-#include "dzialania.h"
+#include "dzialania.cpp"
 
 void dopelnienie(int temp, std::string& str);
 std::string dodawanie(std::string a, std::string b);
