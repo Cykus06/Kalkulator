@@ -106,5 +106,4 @@ int main()
     std::cout << dodawanie("5555","666") << '\n';
     std::cout << mnozenie("111", "1") << '\n';
     std::cout << dzielenie("121", "11");
-    std::cout << "xd";
 }
