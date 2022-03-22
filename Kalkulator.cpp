@@ -94,7 +94,7 @@ bool mniejsze(std::string a, std::string b)
 std::string dzielenie(std::string a, std::string b)
 {
     std::string wynik = "0";
-    std::string temp = b;
+    std::string temp = "0";
     while (mniejsze(a,temp))
     {
         temp = mnozenie(b, wynik);
