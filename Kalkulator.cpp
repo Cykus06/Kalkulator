@@ -88,7 +88,7 @@ bool mniejsze(std::string a, std::string b)
         return true;
     std::vector<std::string> x = {a,b};
     sort(x.begin(), x.end());
-    return x[0] == b;
+    return x[0] == b && a != b;
 }
 
 std::string dzielenie(std::string a, std::string b)
@@ -105,7 +105,7 @@ std::string dzielenie(std::string a, std::string b)
 
 int main()
 {
-    //std::cout << dodawanie("5555","666") << '\n';
+    //std::cout << dodawanie("0","1") << '\n';
     //std::cout << mnozenie("11", "3") << '\n';
     std::cout << dzielenie("121", "11");
 }
