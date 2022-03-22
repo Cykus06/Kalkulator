@@ -77,11 +77,34 @@ std::string mnozenie(std::string a, std::string b)
     }
     for (auto el : dodatki)
         wynik = dodawanie(el, wynik);
+    if (wynik == "")
+        return "0";
+    return wynik;
+}
+
+bool mniejsze(std::string a, std::string b)
+{
+    std::vector<std::string> x = {a,b};
+    sort(x.begin(), x.end());
+    return x[0] == b;
+}
+
+std::string dzielenie(std::string a, std::string b)
+{
+    std::string wynik = "1";
+    std::string temp = b;
+    while (mniejsze(a,temp))
+    {
+        temp = mnozenie(b, wynik); 
+        wynik = dodawanie(wynik, "1");
+    }
     return wynik;
 }
 
 int main()
 {
     std::cout << dodawanie("5555","666") << '\n';
-    std::cout << mnozenie("111", "123456789");
+    std::cout << mnozenie("111", "1") << '\n';
+    std::cout << dzielenie("121", "11");
+    std::cout << "xd";
 }
