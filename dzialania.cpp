@@ -54,7 +54,18 @@ std::string odejmowanie(std::string a, std::string b)
     int N;
     bool odejma = 0;
     przemiana(N, a, b);
-
+    for (int i = 0; i < N; i++)
+    {
+        a[i] -= '0';
+        b[i] -= '0';
+        if (a[i] < b[i])
+        {
+            a[i + 1] -= 1;
+            a[i] += 10;
+        }
+        roznica += std::to_string(a[i] - b[i]);
+    }
+    std::reverse(roznica.begin(), roznica.end());
     return roznica;
 }
 
