@@ -13,3 +13,4 @@ std::string mnozenie(std::string a, std::string b);
 bool mniejsze(std::string a, std::string b);
 std::string dzielenie(std::string a, std::string b);
 std::string silnia(std::string a);
+std::string odejmowanie(std::string a, std::string b);

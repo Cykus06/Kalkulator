@@ -10,15 +10,13 @@ void dopelnienie(int temp, std::string& str)
         str += '0';
 }
 
-std::string dodawanie(std::string a, std::string b)
+void przemiana(int& N, std::string& a, std::string& b)
 {
-    std::string wynik = "";
     const int DLa = a.length();
     const int DLb = b.length();
-    int N;
+    int temp = DLa - DLb;
     reverse(a.begin(), a.end());
     reverse(b.begin(), b.end());
-    int temp = DLa - DLb;
     if (temp > 0)
     {
         dopelnienie(temp, b);
@@ -30,21 +28,36 @@ std::string dodawanie(std::string a, std::string b)
         dopelnienie(temp, a);
         N = DLb;
     }
-    int reszta = 0;
+}
+
+std::string dodawanie(std::string skladnik1, std::string skladnik2)
+{
+    std::string suma = "";
+    int N;
+    bool reszta = 0;
+    przemiana(N, skladnik1, skladnik2);
     for (int i = 0; i < N; i++)
     {
-        int w = a[i] + b[i] + reszta - 2 * '0';
-        wynik += std::to_string(w % 10);
-        if (w % 10 == w)
-            reszta = 0;
-        else
-            reszta = 1;
+        int w = skladnik1[i] + skladnik2[i] + reszta - 2 * '0';
+        suma += std::to_string(w % 10);
+        reszta = (w % 10 - w)/10;
     }
     if (reszta)
-        wynik += '1';
-    reverse(wynik.begin(), wynik.end());
-    return wynik;
+        suma += '1';
+    reverse(suma.begin(), suma.end());
+    return suma;
 }
+
+std::string odejmowanie(std::string a, std::string b)
+{
+    std::string roznica = "";
+    int N;
+    bool odejma = 0;
+    przemiana(N, a, b);
+
+    return roznica;
+}
+
 
 void mnowl(const int N, std::string a, std::string b, std::vector<std::string>& dodatki)
 {
