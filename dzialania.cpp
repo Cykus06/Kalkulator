@@ -96,16 +96,21 @@ bool mniejsze(std::string a, std::string b)
     return x[0] == b && a != b;
 }
 
-std::string dzielenie(std::string a, std::string b)
+std::string dzielenie_calkowite(std::string dzielna, std::string dzielnik)
 {
-    std::string wynik = "0";
+    if (dzielnik == "0")
+        return "ERROR";
+    if (!mniejsze(dzielna, dzielnik))
+        return "0";
+    std::string iloraz = "0";
     std::string temp = "0";
-    while (mniejsze(a, temp))
+    while (mniejsze(dzielna, temp))
     {
-        temp = mnozenie(b, wynik);
-        wynik = dodawanie(wynik, "1");
+        temp = mnozenie(dzielnik, iloraz);
+        iloraz = dodawanie(iloraz, "1");
     }
-    return wynik;
+    iloraz[iloraz.length() - 1] -= 1;
+    return iloraz;
 }
 
 std::string silnia(std::string a)

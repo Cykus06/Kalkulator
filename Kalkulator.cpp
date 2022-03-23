@@ -3,6 +3,5 @@
 
 int main()
 {
-    std::string a = "123034532432432423", b = "1123123123123";
-    std::cout << dodawanie(a,b) << '\n';
+    std::cout << dzielenie_calkowite("123456789", "1234567890");
 }
