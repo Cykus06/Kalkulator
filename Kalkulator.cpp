@@ -3,5 +3,5 @@
 
 int main()
 {
-    std::cout << dzielenie_calkowite("123456789", "1234567890");
+	std::cout << mnozenie("11", "11");
 }

@@ -66,48 +66,43 @@ std::string odejmowanie(std::string a, std::string b)
         roznica += std::to_string(a[i] - b[i]);
     }
     std::reverse(roznica.begin(), roznica.end());
+    if(roznica[0] == '0')
+        roznica.erase(0, 1);
     return roznica;
 }
 
-
-void mnowl(const int N, std::string a, std::string b, std::vector<std::string>& dodatki)
+std::string mnozenie_pojedyncze(std::string a, char b)
 {
-    std::string zera = "";
+    std::string iloczyn = "";
+    const int N = a.length();
+    const int x = b - '0';
+    int reszta = 0;
+    reverse(a.begin(), a.end());
     for (int i = 0; i < N; i++)
     {
-        std::string tmp = "";
-
-        int temp = b[i] - '0';
-        for (int j = 0; j < temp; j++)
-        {
-            tmp = dodawanie(tmp, a);
-        }
-        tmp += zera;
-        dodatki.push_back(tmp);
-        zera += '0';
+        char z = (a[i] - '0')*x+reszta;
+        char dod = z % 10;
+        iloczyn += dod + '0';
+        reszta = z - dod;
     }
+    return iloczyn;
 }
 
 std::string mnozenie(std::string a, std::string b)
 {
     std::string wynik = "";
-    std::vector<std::string> dodatki;
     const int DLa = a.length();
     const int DLb = b.length();
-    if (DLa > DLb)
+    const int X = DLb;
+    std::vector<std::string> tab;
+    for (int i = 0; i < DLb; i++)
     {
-        const int N = DLb;
-        mnowl(N, a, b, dodatki);
+        tab.push_back(mnozenie_pojedyncze(a, b[i]));
+        for (int j = 0; j < i; j++)
+            tab[i] += '0';
     }
-    else
-    {
-        const int N = DLa;
-        mnowl(N, b, a, dodatki);
-    }
-    for (auto el : dodatki)
-        wynik = dodawanie(el, wynik);
-    if (wynik == "")
-        return "0";
+    for (auto el : tab)
+        wynik = dodawanie(wynik, el);
     return wynik;
 }
 
@@ -128,12 +123,12 @@ std::string dzielenie_calkowite(std::string dzielna, std::string dzielnik)
         return "0";
     std::string iloraz = "0";
     std::string temp = "0";
-    while (mniejsze(dzielna, temp))
+    while (mniejsze(dzielna, dzielnik))
     {
-        temp = mnozenie(dzielnik, iloraz);
+        dzielna = odejmowanie(dzielna, dzielnik);
         iloraz = dodawanie(iloraz, "1");
     }
-    iloraz[iloraz.length() - 1] -= 1;
+    iloraz = dodawanie(iloraz, "1");
     return iloraz;
 }
 

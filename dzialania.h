@@ -11,6 +11,6 @@ std::string dodawanie(std::string a, std::string b);
 void mnowl(const int N, std::string a, std::string b, std::vector<std::string>& dodatki);
 std::string mnozenie(std::string a, std::string b);
 bool mniejsze(std::string a, std::string b);
-std::string dzielenie(std::string a, std::string b);
+std::string dzielenie_calkowite(std::string a, std::string b);
 std::string silnia(std::string a);
 std::string odejmowanie(std::string a, std::string b);
